@@ -77,6 +77,13 @@ class CustomersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //return $request;
+        $customer = Customer::find($id);
+        $customer->firstName = $request->input('firstName');
+        $customer->lastName = $request->input('lastName');
+        $customer->save();
+        //return view("/pages.customers");
+        return redirect('/customer');
     }
 
     /**
