@@ -17,7 +17,7 @@ class CustomersController extends Controller
         //
         $customers = Customer::all();
 
-        return view('/pages.customers')->width('customers', $customers);
+        return view('/pages.customers')->with('customers', $customers);
     }
 
     /**
@@ -113,5 +113,8 @@ class CustomersController extends Controller
     public function destroy($id)
     {
         //
+        $customer = Customer::find($id);
+        $customer -> delete();
+        return redirect('/customers');
     }
 }
