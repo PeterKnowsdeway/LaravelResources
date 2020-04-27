@@ -28,6 +28,7 @@ class CustomersController extends Controller
     public function create()
     {
         //
+        return view('pages.addCustomer');
     }
 
     /**
@@ -38,7 +39,19 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //  
+        //return "store";
+        $customer = new Customer;
+        $customer->firstName = $request->input('firstName');
+        $customer->lastName = $request->input('lastName');
+        $customer->address = $request->input('address');
+        $customer->city = $request->input('city');
+        $customer->state = $request->input('state');
+        $customer->zip = $request->input('zip');
+
+        $customer->save();
+        //return view("/pages.customers");
+        return redirect('/customers');
     }
 
     /**
@@ -79,11 +92,16 @@ class CustomersController extends Controller
         //
         //return $request;
         $customer = Customer::find($id);
+
         $customer->firstName = $request->input('firstName');
         $customer->lastName = $request->input('lastName');
+        $customer->address = $request->input('address');
+        $customer->city = $request->input('city');
+        $customer->state = $request->input('state');
+        $customer->zip = $request->input('zip');
         $customer->save();
         //return view("/pages.customers");
-        return redirect('/customer');
+        return redirect('/customers');
     }
 
     /**
