@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('/layout.app')
 
 @section('content')
     <h1>{{$customer->firstName}} {{$customer->lastName}} </h1>

@@ -20,4 +20,8 @@ Route::get('/', function () {
 //Route::get('/customers', 'CustomersController@index');
 //Route::get('/customers/{id}', 'CustomersController@edit');
 
-Route::get('/customers', "CustomersController");
+Route::get('/customers', "CustomersController@index");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
