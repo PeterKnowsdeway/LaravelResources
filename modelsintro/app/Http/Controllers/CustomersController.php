@@ -118,8 +118,4 @@ class CustomersController extends Controller
         return redirect('/customers');
     }
 
-    public function registar()
-    {
-        
-    }
 }
